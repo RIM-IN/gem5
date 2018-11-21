@@ -22,7 +22,7 @@ def create_alpha_21364(cpu_type, process):
     system.clk_domain.voltage_domain = VoltageDomain()
 
     # set system memory
-    if (cpu_type == "AtomicSimpleCPU"):
+    if (cpu_type == "AtomicSimple"):
         system.mem_mode = "atomic"
     else:
         system.mem_mode = 'timing'
@@ -33,7 +33,7 @@ def create_alpha_21364(cpu_type, process):
 
     if (cpu_type == "DerivO3CPU"):
         system.cpu = alpha_21364.Alpha21364_CPU()
-    elif (cpu_type == "TimingSimpleCPU"):
+    elif (cpu_type == "TimingSimple"):
         system.cpu = TimingSimpleCPU()
     else:
         system.cpu = AtomicSimpleCPU()
