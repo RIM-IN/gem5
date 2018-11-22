@@ -232,27 +232,6 @@ if (options.l1is != ""):
 
 
 
-print("\n\n")
-print("echo".center(50, "-"))
-print(" CPU Type = {}".format(type(system.cpu)))
-print(" I Cache Size = {} Byte, Assoc = {}, Latency = {}".format(\
-      system.cpu[0].icache.size,\
-      system.cpu[0].icache.assoc,\
-      system.cpu[0].icache.tag_latency)
-      )
-print(" D Cache Size = {} Byte, Assoc = {}, Latency = {}".format(\
-      system.cpu[0].dcache.size,\
-      system.cpu[0].dcache.assoc,\
-      system.cpu[0].dcache.tag_latency)
-      )
-print(" L2 Cache Size = {} Byte, Assoc = {}, Latency = {}".format(\
-      system.l2.size, system.l2.assoc, system.l2.tag_latency
-      ))
-print(50*"-")
-print("\n\n")
-
-
-
 
 
 
