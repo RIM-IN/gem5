@@ -241,3 +241,5 @@ def config_mem(options, system):
             subsystem.mem_ctrls[i].device_size = options.hmc_dev_vault_size
         else:
             subsystem.mem_ctrls[i].port = xbar.master
+
+    print(subsystem.mem_ctrls)
