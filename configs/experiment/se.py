@@ -87,14 +87,14 @@ if (options.l2lt != ""):
       system.l2cache.response_latency = int(options.l2lt)
 
 if (options.l1dl != ""):
-      system.cpu.dcache.tag_latency = int(options.l1dl)
-      system.cpu.dcache.data_latency = int(options.l1dl)
-      system.cpu.dcache.response_latency = int(options.l1dl)
+      system.cpu[0].dcache.tag_latency = int(options.l1dl)
+      system.cpu[0].dcache.data_latency = int(options.l1dl)
+      system.cpu[0].dcache.response_latency = int(options.l1dl)
 
 if (options.l1il != ""):
-      system.cpu.icache.tag_latency = int(options.l1il)
-      system.cpu.icache.data_latency = int(options.l1il)
-      system.cpu.icache.response_latency = int(options.l1il)
+      system.cpu[0].icache.tag_latency = int(options.l1il)
+      system.cpu[0].icache.data_latency = int(options.l1il)
+      system.cpu[0].icache.response_latency = int(options.l1il)
 
 print("\n\n")
 print("echo".center(50, "-"))

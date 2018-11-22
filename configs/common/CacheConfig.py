@@ -65,6 +65,16 @@ def config_cache(options, system):
         dcache_class, icache_class, l2_cache_class, walk_cache_class = \
             O3_ARM_v7a_DCache, O3_ARM_v7a_ICache, O3_ARM_v7aL2, \
             O3_ARM_v7aWalkCache
+    elif options.cpu_type == "Alpha21364_CPU":
+        print("---------------------")
+        print("Use Alpha 21364 Cache")
+        print("---------------------")
+
+        from cores.alpha.alpha_21364 import *
+
+        dcache_class, icache_class, l2_cache_class, walk_cache_class = \
+            Alpha21364_DCache, Alpha21364_ICache, \
+            Alpha21364_L2Cache, None
     else:
         dcache_class, icache_class, l2_cache_class, walk_cache_class = \
             L1_DCache, L1_ICache, L2Cache, None
@@ -74,6 +84,15 @@ def config_cache(options, system):
 
     # Set the cache line size of the system
     system.cache_line_size = options.cacheline_size
+    # Zheng Hijacking
+    # overriding
+    if options.cpu_type == "Alpha21364_CPU":
+        print("---------------------")
+        print("Use Alpha 21364 Cache")
+        print("---------------------")
+        system.cache_line_size = 64
+
+
 
     # If elastic trace generation is enabled, make sure the memory system is
     # minimal so that compute delays do not include memory access latencies.
@@ -99,10 +118,27 @@ def config_cache(options, system):
 
     for i in xrange(options.num_cpus):
         if options.caches:
+
             icache = icache_class(size=options.l1i_size,
                                   assoc=options.l1i_assoc)
             dcache = dcache_class(size=options.l1d_size,
                                   assoc=options.l1d_assoc)
+
+
+            # Zheng Hijacking
+            # overriding
+            if options.cpu_type == "Alpha21364_CPU":
+                print("---------------------")
+                print("Use Alpha 21364 Cache")
+                print("---------------------")
+
+                icache = icache_class()
+                dcache = dcache_class()
+
+
+
+
+
 
             # If we have a walker cache specified, instantiate two
             # instances here
