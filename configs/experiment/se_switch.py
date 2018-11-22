@@ -232,6 +232,37 @@ if (options.l1is != ""):
 
 
 
+# ------ print system config ---------------
+
+print("\n\n")
+print("echo".center(50, "-"))
+
+if (hasattr(system.cpu[0], "dcache")):
+      print("D Cache Params:")
+      print("lat : {}".format(system.cpu[0].dcache.tag_latency))
+      print("size : {}".format(system.cpu[0].dcache.size))
+      print("assoc : {}".format(system.cpu[0].dcache.assoc))
+
+if (hasattr(system.cpu[0], "icache")):
+      print("D Cache Params:")
+      print("lat : {}".format(system.cpu[0].icache.tag_latency))
+      print("size : {}".format(system.cpu[0].icache.size))
+      print("assoc : {}".format(system.cpu[0].icache.assoc))
+
+
+if (hasattr(system, "l2")):
+      print("L2 Cache Params:")
+      print("lat : {}".format(system.l2.tag_latency))
+      print("size : {}".format(system.l2.size))
+      print("assoc : {}".format(system.l2.assoc))
+
+
+print(50*"-")
+print("\n\n")
+
+
+# -------------------------------------------
+
 
 
 
