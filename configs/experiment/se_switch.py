@@ -256,6 +256,9 @@ if (hasattr(system, "l2")):
       print("size : {}".format(system.l2.size))
       print("assoc : {}".format(system.l2.assoc))
 
+if (hasattr(system.cpu[0], "clk_domain")):
+      print("CPU Clock:")
+      print((system.cpu[0].clk_domain.clock))
 
 
 print(50*"-")
