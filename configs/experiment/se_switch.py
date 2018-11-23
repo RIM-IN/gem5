@@ -66,6 +66,12 @@ parser.add_option("--l1is",   type="string", default="", \
 (CPUClass, test_mem_mode, FutureClass) = Simulation.setCPUClass(options)
 CPUClass.numThreads = 1
 
+print("--------------------echo----------------------")
+print("CPU Class = {}".format(CPUClass))
+print("Future CPU Class = {}".format(FutureClass))
+print("----------------------------------------------")
+
+
 # Check -- do not allow SMT with multiple CPUs
 if options.smt and options.num_cpus > 1:
     fatal("You cannot use SMT with multiple CPUs!")

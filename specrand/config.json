@@ -485,7 +485,7 @@
         "cpu_clk_domain": {
             "name": "cpu_clk_domain", 
             "clock": [
-                100
+                500
             ], 
             "init_perf_level": 0, 
             "voltage_domain": "system.cpu_voltage_domain", 
